@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7416B2F82B7FC11C00D2639A /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7416B2F72B7FC11C00D2639A /* IHProgressHUD */; };
 		74BA24262B7FA948004B884B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24252B7FA948004B884B /* AppDelegate.swift */; };
 		74BA24282B7FA948004B884B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24272B7FA948004B884B /* SceneDelegate.swift */; };
-		74BA242A2B7FA948004B884B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24292B7FA948004B884B /* ViewController.swift */; };
+		74BA242A2B7FA948004B884B /* BaseOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24292B7FA948004B884B /* BaseOnboardingViewController.swift */; };
 		74BA242D2B7FA948004B884B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BA242B2B7FA948004B884B /* Main.storyboard */; };
 		74BA242F2B7FA94C004B884B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74BA242E2B7FA94C004B884B /* Assets.xcassets */; };
 		74BA24322B7FA94C004B884B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74BA24302B7FA94C004B884B /* LaunchScreen.storyboard */; };
 		74BA243D2B7FA94E004B884B /* ios_GameAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA243C2B7FA94E004B884B /* ios_GameAppTests.swift */; };
 		74BA24482B7FA94E004B884B /* ios_GameAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24472B7FA94E004B884B /* ios_GameAppUITests.swift */; };
 		74BA245A2B7FA9C9004B884B /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 74BA24592B7FA9C9004B884B /* PureLayout */; };
+		74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA245E2B7FAFC4004B884B /* Colors.swift */; };
+		74BA24672B7FB0B8004B884B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24662B7FB0B8004B884B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,7 @@
 		74BA24222B7FA948004B884B /* ios-GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-GameApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BA24252B7FA948004B884B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74BA24272B7FA948004B884B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		74BA24292B7FA948004B884B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74BA24292B7FA948004B884B /* BaseOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOnboardingViewController.swift; sourceTree = "<group>"; };
 		74BA242C2B7FA948004B884B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74BA242E2B7FA94C004B884B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74BA24312B7FA94C004B884B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +53,8 @@
 		74BA24432B7FA94E004B884B /* ios-GameAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-GameAppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BA24472B7FA94E004B884B /* ios_GameAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_GameAppUITests.swift; sourceTree = "<group>"; };
 		74BA24492B7FA94E004B884B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74BA245E2B7FAFC4004B884B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		74BA24662B7FB0B8004B884B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7416B2F82B7FC11C00D2639A /* IHProgressHUD in Frameworks */,
 				74BA245A2B7FA9C9004B884B /* PureLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,11 +109,13 @@
 			children = (
 				74BA24252B7FA948004B884B /* AppDelegate.swift */,
 				74BA24272B7FA948004B884B /* SceneDelegate.swift */,
-				74BA24292B7FA948004B884B /* ViewController.swift */,
+				74BA24292B7FA948004B884B /* BaseOnboardingViewController.swift */,
+				74BA24662B7FB0B8004B884B /* ViewController.swift */,
 				74BA242B2B7FA948004B884B /* Main.storyboard */,
 				74BA242E2B7FA94C004B884B /* Assets.xcassets */,
 				74BA24302B7FA94C004B884B /* LaunchScreen.storyboard */,
 				74BA24332B7FA94C004B884B /* Info.plist */,
+				74BA245E2B7FAFC4004B884B /* Colors.swift */,
 			);
 			path = "ios-GameApp";
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 			name = "ios-GameApp";
 			packageProductDependencies = (
 				74BA24592B7FA9C9004B884B /* PureLayout */,
+				7416B2F72B7FC11C00D2639A /* IHProgressHUD */,
 			);
 			productName = "ios-GameApp";
 			productReference = 74BA24222B7FA948004B884B /* ios-GameApp.app */;
@@ -222,6 +231,7 @@
 			mainGroup = 74BA24192B7FA948004B884B;
 			packageReferences = (
 				74BA24582B7FA9C9004B884B /* XCRemoteSwiftPackageReference "PureLayout" */,
+				7416B2F62B7FC11C00D2639A /* XCRemoteSwiftPackageReference "IHProgressHUD" */,
 			);
 			productRefGroup = 74BA24232B7FA948004B884B /* Products */;
 			projectDirPath = "";
@@ -266,7 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74BA242A2B7FA948004B884B /* ViewController.swift in Sources */,
+				74BA24672B7FB0B8004B884B /* ViewController.swift in Sources */,
+				74BA242A2B7FA948004B884B /* BaseOnboardingViewController.swift in Sources */,
+				74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */,
 				74BA24262B7FA948004B884B /* AppDelegate.swift in Sources */,
 				74BA24282B7FA948004B884B /* SceneDelegate.swift in Sources */,
 			);
@@ -603,6 +615,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7416B2F62B7FC11C00D2639A /* XCRemoteSwiftPackageReference "IHProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swiftify-Corp/IHProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.8;
+			};
+		};
 		74BA24582B7FA9C9004B884B /* XCRemoteSwiftPackageReference "PureLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/PureLayout/PureLayout";
@@ -614,6 +634,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7416B2F72B7FC11C00D2639A /* IHProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7416B2F62B7FC11C00D2639A /* XCRemoteSwiftPackageReference "IHProgressHUD" */;
+			productName = IHProgressHUD;
+		};
 		74BA24592B7FA9C9004B884B /* PureLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 74BA24582B7FA9C9004B884B /* XCRemoteSwiftPackageReference "PureLayout" */;
