@@ -76,3 +76,24 @@ extension BaseOnboardingViewController {
         }
     }
 }
+
+extension BaseOnboardingViewController: UICollectionViewDataSource {
+    
+    //MARK: - CollectionViewDataSource
+
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withClass: GenreCollectionViewCell.self, forIndexPath: indexPath)
+        return cell
+    }
+    
+}
+
+extension BaseOnboardingViewController: UICollectionViewDelegate {
+    
+}

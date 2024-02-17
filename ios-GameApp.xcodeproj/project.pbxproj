@@ -22,6 +22,7 @@
 		74BA245A2B7FA9C9004B884B /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 74BA24592B7FA9C9004B884B /* PureLayout */; };
 		74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA245E2B7FAFC4004B884B /* Colors.swift */; };
 		74BA24672B7FB0B8004B884B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24662B7FB0B8004B884B /* ViewController.swift */; };
+		74DF02B12B81338F0011486B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF02B02B81338F0011486B /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		74BA24492B7FA94E004B884B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BA245E2B7FAFC4004B884B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		74BA24662B7FB0B8004B884B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74DF02B02B81338F0011486B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				74BA24302B7FA94C004B884B /* LaunchScreen.storyboard */,
 				74BA24332B7FA94C004B884B /* Info.plist */,
 				74BA245E2B7FAFC4004B884B /* Colors.swift */,
+				74DF02B02B81338F0011486B /* Extensions.swift */,
 			);
 			path = "ios-GameApp";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				74BA24672B7FB0B8004B884B /* ViewController.swift in Sources */,
 				74BA242A2B7FA948004B884B /* BaseOnboardingViewController.swift in Sources */,
 				74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */,
+				74DF02B12B81338F0011486B /* Extensions.swift in Sources */,
 				74BA24262B7FA948004B884B /* AppDelegate.swift in Sources */,
 				7467DAB22B812C33007D432B /* Constants.swift in Sources */,
 				7467DAAD2B812C2C007D432B /* GenreCollectionViewCell.swift in Sources */,
