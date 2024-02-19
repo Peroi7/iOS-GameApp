@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "IHProgressHUD",
+        "repositoryURL": "https://github.com/Swiftify-Corp/IHProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "c3e0cf90ba1b310073e841de7dc6ef0a2d4899e2",
+          "version": "0.1.8"
+        }
+      },
+      {
         "package": "PureLayout",
         "repositoryURL": "https://github.com/PureLayout/PureLayout",
         "state": {
