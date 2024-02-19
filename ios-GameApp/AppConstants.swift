@@ -7,7 +7,10 @@
 
 import UIKit
 
-enum Constants {
+//MARK: - Global Constants
+
+enum AppConstants {
     
     static let paddingDefault: CGFloat = 16.0
+    static let paddingSmall: CGFloat = 8.0
 }

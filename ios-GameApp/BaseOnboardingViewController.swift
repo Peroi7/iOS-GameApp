@@ -11,7 +11,7 @@ import IHProgressHUD
 
 class BaseOnboardingViewController: UIViewController {
     
-    private enum Constants {
+    fileprivate enum Constants {
         static let baseOnboardingNavigationTitle = "Genres"
     }
     
@@ -19,30 +19,17 @@ class BaseOnboardingViewController: UIViewController {
     
     private var separatorView: UIView!
     private var collectionView: UICollectionView!
-    let collectionViewFlowLayout = UICollectionViewFlowLayout()
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarAppearance()
         addSeparatorView()
         navigationItem.title = navigationItemTitle
-        
-        view.backgroundColor = .white
-        
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 8, bottom: 8, right: 8)
-        
-        let height = layout.estimatedItemSize.height
-        layout.itemSize = CGSize(width: (screenWidth - 24) / 2, height:  (screenWidth / 2) * 1.3)
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 10
-
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        let layout = CollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.addSubview(collectionView)
         collectionView.autoPinEdgesToSuperviewEdges()
@@ -56,9 +43,7 @@ class BaseOnboardingViewController: UIViewController {
         separatorView.backgroundColor = .white
         guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.addSubview(separatorView)
-        separatorView.autoPinEdge(.top, to: .bottom, of: navigationBar)
-        separatorView.autoPinEdge(.left, to: .left, of: navigationBar)
-        separatorView.autoPinEdge(.right, to: .right, of: navigationBar)
+        separatorView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         separatorView.autoSetDimension(.height, toSize: 1)
     }
     
@@ -71,10 +56,31 @@ class BaseOnboardingViewController: UIViewController {
     }
     
     }
+
+extension BaseOnboardingViewController: UICollectionViewDataSource {
     
-    //MARK: - CollectionView
+    //MARK: - CollectionViewDataSource
+
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.reuseIdentifier, for: indexPath)
+        
+        return cell
+    }
+    
+}
+
+extension BaseOnboardingViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .zero
+    }
+}
 
 //MARK: - NavigationBar Appearance
 
@@ -95,41 +101,4 @@ extension BaseOnboardingViewController {
             navigationController?.navigationBar.isTranslucent = false
         }
     }
-}
-
-extension BaseOnboardingViewController: UICollectionViewDataSource {
-    
-    //MARK: - CollectionViewDataSource
-
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
-    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let height = collectionViewFlowLayout.estimatedItemSize.height
-//        print(height)
-//        return .init(width: (UIScreen.main.bounds.width - 24) / 2, height: 250)
-//    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.reuseIdentifier, for: indexPath)
-        
-        return cell
-    }
-    
-}
-
-extension BaseOnboardingViewController: UICollectionViewDelegate {
-    
-}
-
-
-extension BaseOnboardingViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .zero
-    }
-    
 }

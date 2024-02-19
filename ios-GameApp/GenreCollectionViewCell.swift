@@ -7,47 +7,15 @@
 
 import UIKit
 
-class PopularItemsStackView: UIStackView {
-    
-    private var gameTitleLabel: UILabel!
-    private var gameCountLabel: UILabel!
-    private var rightCountIcon: UIImageView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        gameTitleLabel = UILabel()
-        gameTitleLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        gameTitleLabel.textAlignment = .left
-        gameTitleLabel.textColor = .white
-        gameTitleLabel.text = "The Witcher 3: Wild Hunt"
-        
-        
-        gameCountLabel = UILabel()
-        gameCountLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        gameCountLabel.textColor = .lightGray
-        gameCountLabel.text = "20,563"
-        
-        axis = .horizontal
-        distribution = .fill
-        alignment = .fill
-        
-        spacing = 16
-        
-        
-        addArrangedSubview(gameTitleLabel)
-        addArrangedSubview(gameCountLabel)
-        
-    }
-    
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
-
 class GenreCollectionViewCell: UICollectionViewCell, NibProvidable, ReusableView {
+        
+    fileprivate enum Constants {
+        static let stackViewItemSpacing: CGFloat = 4
+        static let stackViewHeight: CGFloat = 60
+    }
     
+    //MARK: - Views
+    @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var wrapperView: UIView!
     @IBOutlet weak var separatorView: UIView!
     
@@ -56,45 +24,30 @@ class GenreCollectionViewCell: UICollectionViewCell, NibProvidable, ReusableView
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        addVerticalStackView()
         setupViews()
-        configure()
-        
     }
     
-    private func setupViews() {
+    //MARK: - Setup
+    
+    private func addVerticalStackView() {
         verticalItemsStackView = UIStackView()
         verticalItemsStackView.distribution = .fillEqually
         verticalItemsStackView.alignment = .fill
         verticalItemsStackView.axis = .vertical
-        verticalItemsStackView.spacing = 4
-        
-        let popularItemsStackView1 = PopularItemsStackView()
-        let popularItemsStackView2 = PopularItemsStackView()
-        let popularItemsStackView3 = PopularItemsStackView()
-
+        verticalItemsStackView.spacing = Constants.stackViewItemSpacing
 
         addSubview(verticalItemsStackView)
         verticalItemsStackView.autoPinEdge(.top, to: .bottom
-                                           , of: separatorView, withOffset: 8.0)
-        verticalItemsStackView.autoPinEdge(.left, to: .left, of: self, withOffset: 8.0)
-        verticalItemsStackView.autoPinEdge(.right, to: .right, of: self, withOffset: -8.0)
+                                           , of: separatorView, withOffset: AppConstants.paddingSmall)
+        verticalItemsStackView.autoPinEdge(.left, to: .left, of: self, withOffset: AppConstants.paddingSmall)
+        verticalItemsStackView.autoPinEdge(.right, to: .right, of: self, withOffset: -AppConstants.paddingSmall)
         verticalItemsStackView.autoPinEdge(.bottom, to: .bottom
-                                           , of: wrapperView, withOffset: -8.0)
-        verticalItemsStackView.autoSetDimension(.height, toSize: 60)
-        
-        verticalItemsStackView.addArrangedSubview(popularItemsStackView1)
-        verticalItemsStackView.addArrangedSubview(popularItemsStackView2)
-        verticalItemsStackView.addArrangedSubview(popularItemsStackView3)
-
-
-        
-        
-       
-
+                                           , of: wrapperView, withOffset: -AppConstants.paddingSmall)
+        verticalItemsStackView.autoSetDimension(.height, toSize: Constants.stackViewHeight)
     }
     
-    func configure() {
-        
+    private func setupViews() {
+        selectButton.layer.borderColor = UIColor.white.cgColor
     }
-    
 }
