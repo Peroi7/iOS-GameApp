@@ -43,7 +43,7 @@ class BaseOnboardingViewController: UIViewController {
         separatorView.backgroundColor = .white
         guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.addSubview(separatorView)
-        separatorView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        separatorView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
         separatorView.autoSetDimension(.height, toSize: 1)
     }
     

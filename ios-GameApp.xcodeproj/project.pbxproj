@@ -11,6 +11,11 @@
 		7467DAAD2B812C2C007D432B /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7467DAAB2B812C2C007D432B /* GenreCollectionViewCell.swift */; };
 		7467DAB22B812C33007D432B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7467DAB12B812C33007D432B /* AppConstants.swift */; };
 		747A55A32B83BB2800F39515 /* CollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747A55A22B83BB2800F39515 /* CollectionFlowLayout.swift */; };
+		747A55AE2B83C3C800F39515 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747A55AD2B83C3C800F39515 /* GenreResponse.swift */; };
+		747A55B62B83C45500F39515 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747A55B52B83C45500F39515 /* Genre.swift */; };
+		747A55BB2B83C65400F39515 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747A55BA2B83C65400F39515 /* Network.swift */; };
+		747A55C02B83C74000F39515 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747A55BF2B83C74000F39515 /* BundleExtensions.swift */; };
+		747A55C52B83C79300F39515 /* NetworkSource.plist in Resources */ = {isa = PBXBuildFile; fileRef = 747A55C42B83C79300F39515 /* NetworkSource.plist */; };
 		74840E262B83B48400C2C261 /* PopularItemsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74840E252B83B48400C2C261 /* PopularItemsStackView.swift */; };
 		74BA24262B7FA948004B884B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24252B7FA948004B884B /* AppDelegate.swift */; };
 		74BA24282B7FA948004B884B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24272B7FA948004B884B /* SceneDelegate.swift */; };
@@ -48,6 +53,11 @@
 		7467DAAB2B812C2C007D432B /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		7467DAB12B812C33007D432B /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		747A55A22B83BB2800F39515 /* CollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFlowLayout.swift; sourceTree = "<group>"; };
+		747A55AD2B83C3C800F39515 /* GenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
+		747A55B52B83C45500F39515 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		747A55BA2B83C65400F39515 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		747A55BF2B83C74000F39515 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
+		747A55C42B83C79300F39515 /* NetworkSource.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkSource.plist; sourceTree = "<group>"; };
 		74840E252B83B48400C2C261 /* PopularItemsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularItemsStackView.swift; sourceTree = "<group>"; };
 		74BA24222B7FA948004B884B /* ios-GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-GameApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74BA24252B7FA948004B884B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +144,11 @@
 				74DF02B02B81338F0011486B /* Extensions.swift */,
 				74840E252B83B48400C2C261 /* PopularItemsStackView.swift */,
 				747A55A22B83BB2800F39515 /* CollectionFlowLayout.swift */,
+				747A55AD2B83C3C800F39515 /* GenreResponse.swift */,
+				747A55B52B83C45500F39515 /* Genre.swift */,
+				747A55BA2B83C65400F39515 /* Network.swift */,
+				747A55BF2B83C74000F39515 /* BundleExtensions.swift */,
+				747A55C42B83C79300F39515 /* NetworkSource.plist */,
 			);
 			path = "ios-GameApp";
 			sourceTree = "<group>";
@@ -269,6 +284,7 @@
 			files = (
 				74BA24322B7FA94C004B884B /* LaunchScreen.storyboard in Resources */,
 				74BA242F2B7FA94C004B884B /* Assets.xcassets in Resources */,
+				747A55C52B83C79300F39515 /* NetworkSource.plist in Resources */,
 				74F6D2A02B8259F800989E32 /* GenreCollectionViewCell.xib in Resources */,
 				74BA242D2B7FA948004B884B /* Main.storyboard in Resources */,
 			);
@@ -295,9 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				747A55BB2B83C65400F39515 /* Network.swift in Sources */,
+				747A55C02B83C74000F39515 /* BundleExtensions.swift in Sources */,
 				74BA24672B7FB0B8004B884B /* ViewController.swift in Sources */,
 				74840E262B83B48400C2C261 /* PopularItemsStackView.swift in Sources */,
 				74BA242A2B7FA948004B884B /* BaseOnboardingViewController.swift in Sources */,
+				747A55B62B83C45500F39515 /* Genre.swift in Sources */,
+				747A55AE2B83C3C800F39515 /* GenreResponse.swift in Sources */,
 				74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */,
 				74DF02B12B81338F0011486B /* Extensions.swift in Sources */,
 				74BA24262B7FA948004B884B /* AppDelegate.swift in Sources */,
