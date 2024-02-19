@@ -8,6 +8,7 @@
 import UIKit
 import PureLayout
 import IHProgressHUD
+import Combine
 
 class BaseOnboardingViewController: UIViewController {
     
@@ -19,6 +20,8 @@ class BaseOnboardingViewController: UIViewController {
     
     private var separatorView: UIView!
     private var collectionView: UICollectionView!
+    
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,18 @@ class BaseOnboardingViewController: UIViewController {
         addSeparatorView()
         navigationItem.title = navigationItemTitle
         setupCollectionView()
+        
+
+        Network.fetchGenres()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                
+             
+            } receiveValue: {[weak self] values in
+               
+                print(values.results.count)
+                
+            }.store(in: &cancellables)
     }
     
     private func setupCollectionView() {

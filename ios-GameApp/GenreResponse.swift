@@ -7,6 +7,11 @@
 
 import Foundation
 
-struct GenreResponse<T: Codable>: Codable {
-    let results: [T]
+protocol Responsive: Codable {
+    associatedtype T
+    var results: [T] { get }
+}
+
+struct GenreResponse<T: Codable>: Responsive {
+    var results: [T]
 }

@@ -8,20 +8,21 @@
 import UIKit
 import Combine
 
-enum Network: String {
+fileprivate protocol NetworkApi {
+    static func fetchGenres() -> AnyPublisher<GenreResponse<Genre>, Error>
+}
+
+class Network: NetworkApi {
     
     //MARK: - Network
     
-    case genres = "genres"
+    fileprivate enum FetchType: String {
+        case genre = "genres"
+    }
     
-    static func fetch<T: Codable>(network: Network) -> AnyPublisher<T, Error> {
-        switch network {
-        case .genres:
-            let request = URLComponents(url: Network.baseURL, resolvingAgainstBaseURL: true)!
-                .parameters(parameters: ["genres": genres.rawValue, "api_key" : apiKey])
-                .request
-            return Network.fireRequest(request)
-        }
+    static func fetchGenres() -> AnyPublisher<GenreResponse<Genre>, Error> {
+        let request = fire(parameters: ["key" : apiKey], type: .genre)
+        return Network.fireRequest(request)
     }
 }
 
@@ -29,12 +30,19 @@ extension Network {
     
     //MARK: - Request
     
-    private static func fireRequest<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, Error> {
+    private static func fireRequest<T: Codable>(_ request: URLRequest) -> AnyPublisher<T, Error> {
         return URLSession.shared
             .dataTaskPublisher(for: request)
             .map { $0.data }
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
+    }
+    
+    private static func fire(parameters: [String : CustomStringConvertible], type: FetchType) -> URLRequest {
+        let request = URLComponents(url: Network.baseURL(type: type), resolvingAgainstBaseURL: false)!
+            .parameters(parameters: parameters)
+            .request
+        return request
     }
 }
 
@@ -69,8 +77,9 @@ extension Network {
         return ""
     }
     
-    fileprivate static var baseURL: URL {
-        if let baseURL = URL(string: "https://api.rawg.io/api/") {
+    fileprivate static func baseURL(type: FetchType) -> URL {
+        if var baseURL = URL(string: "https://api.rawg.io/api/") {
+            baseURL.appendPathComponent(type.rawValue)
             return baseURL
         }
         return URL(fileURLWithPath: "")
