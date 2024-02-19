@@ -45,10 +45,8 @@ extension UICollectionView {
         register(`class`.nib, forCellWithReuseIdentifier: `class`.reuseIdentifier)
     }
     
-    func dequeueReusableCell<T: UICollectionViewCell>(withClass `class`: T.Type, forIndexPath indexPath: IndexPath) -> T where T: ReusableView {
-        guard let cell = self.dequeueReusableCell(withReuseIdentifier: `class`.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Error: cell with identifier: \(`class`.reuseIdentifier) for index path: \(indexPath) is not \(T.self)")
-        }
-        return cell
+    func dequeueReusableCell<T: UICollectionViewCell>(withClass `class`: T.Type, forIndexPath indexPath: IndexPath) -> T? where T: ReusableView {
+        return self.dequeueReusableCell(withReuseIdentifier: `class`.reuseIdentifier, for: indexPath) as? T
     }
+    
 }

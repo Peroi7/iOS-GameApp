@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7416B2F82B7FC11C00D2639A /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7416B2F72B7FC11C00D2639A /* IHProgressHUD */; };
-		7467DAAC2B812C2C007D432B /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7467DAAA2B812C2C007D432B /* GenreCollectionViewCell.xib */; };
 		7467DAAD2B812C2C007D432B /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7467DAAB2B812C2C007D432B /* GenreCollectionViewCell.swift */; };
 		7467DAB22B812C33007D432B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7467DAB12B812C33007D432B /* Constants.swift */; };
 		74BA24262B7FA948004B884B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24252B7FA948004B884B /* AppDelegate.swift */; };
@@ -23,6 +22,7 @@
 		74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA245E2B7FAFC4004B884B /* Colors.swift */; };
 		74BA24672B7FB0B8004B884B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24662B7FB0B8004B884B /* ViewController.swift */; };
 		74DF02B12B81338F0011486B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF02B02B81338F0011486B /* Extensions.swift */; };
+		74F6D2A02B8259F800989E32 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74F6D29F2B8259F800989E32 /* GenreCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7467DAAA2B812C2C007D432B /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		7467DAAB2B812C2C007D432B /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		7467DAB12B812C33007D432B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		74BA24222B7FA948004B884B /* ios-GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-GameApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +62,7 @@
 		74BA245E2B7FAFC4004B884B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		74BA24662B7FB0B8004B884B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		74DF02B02B81338F0011486B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		74F6D29F2B8259F800989E32 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 				74BA24662B7FB0B8004B884B /* ViewController.swift */,
 				7467DAB12B812C33007D432B /* Constants.swift */,
 				7467DAAB2B812C2C007D432B /* GenreCollectionViewCell.swift */,
-				7467DAAA2B812C2C007D432B /* GenreCollectionViewCell.xib */,
+				74F6D29F2B8259F800989E32 /* GenreCollectionViewCell.xib */,
 				74BA242B2B7FA948004B884B /* Main.storyboard */,
 				74BA242E2B7FA94C004B884B /* Assets.xcassets */,
 				74BA24302B7FA94C004B884B /* LaunchScreen.storyboard */,
@@ -261,9 +261,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7467DAAC2B812C2C007D432B /* GenreCollectionViewCell.xib in Resources */,
 				74BA24322B7FA94C004B884B /* LaunchScreen.storyboard in Resources */,
 				74BA242F2B7FA94C004B884B /* Assets.xcassets in Resources */,
+				74F6D2A02B8259F800989E32 /* GenreCollectionViewCell.xib in Resources */,
 				74BA242D2B7FA948004B884B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
