@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "IHProgressHUD",
+        "repositoryURL": "https://github.com/Swiftify-Corp/IHProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "c3e0cf90ba1b310073e841de7dc6ef0a2d4899e2",
+          "version": "0.1.8"
+        }
+      },
+      {
         "package": "PureLayout",
         "repositoryURL": "https://github.com/PureLayout/PureLayout",
         "state": {
           "branch": null,
           "revision": "5561683c96dc49b023c1299bfe4f6fbeed5f8199",
           "version": "3.1.9"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
+        "state": {
+          "branch": null,
+          "revision": "2e63d0061da449ad0ed130768d05dceb1496de44",
+          "version": "5.12.5"
         }
       }
     ]
