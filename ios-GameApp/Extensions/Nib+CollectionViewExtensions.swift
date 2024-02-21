@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  Nib+CollectionViewExtensions.swift
 //  ios-GameApp
 //
 //  Created by Pero Ivic on 17/02/2024.
@@ -39,6 +39,10 @@ extension UICollectionView {
     
     func registerClass<T: UICollectionViewCell>(cellClass `class`: T.Type) where T: ReusableView {
         register(`class`, forCellWithReuseIdentifier: `class`.reuseIdentifier)
+    }
+    
+    func registerHeader<T: UICollectionReusableView>(cellClass `class`: T.Type, kind: String) where T: ReusableView {
+        register(`class`, forSupplementaryViewOfKind: kind, withReuseIdentifier: `class`.reuseIdentifier)
     }
     
     func registerNib<T: UICollectionViewCell>(cellClass `class`: T.Type) where T: NibProvidable & ReusableView {

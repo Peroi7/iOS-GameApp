@@ -10,47 +10,41 @@ import PureLayout
 import IHProgressHUD
 import Combine
 
-class BaseOnboardingViewController: UIViewController {
+class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    fileprivate enum Constants {
-        static let baseOnboardingNavigationTitle = "Genres"
+    private enum Constants {
+       static let navigationItemTitle: String = "Genres"
     }
-    
-    var navigationItemTitle: String { return Constants.baseOnboardingNavigationTitle }
-    
-    private var separatorView: UIView!
-    private var collectionView: UICollectionView!
-    
-    private var cancellables = Set<AnyCancellable>()
+     
+    var navigationItemTitle: String { return Constants.navigationItemTitle }
+    var collectionView: UICollectionView!
 
+    private var separatorView: UIView!
+    public var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarAppearance()
         addSeparatorView()
         navigationItem.title = navigationItemTitle
         setupCollectionView()
-        
-
-        Network.fetchGenres()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                
-             
-            } receiveValue: {[weak self] values in
-               
-                print(values.results.count)
-                
-            }.store(in: &cancellables)
     }
     
+    //MARK: - CollectionView
+
     private func setupCollectionView() {
         let layout = CollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.addSubview(collectionView)
         collectionView.autoPinEdgesToSuperviewEdges()
-        collectionView.registerNib(cellClass: GenreCollectionViewCell.self)
+        registerClass()
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    public func registerClass() {
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "reuseIdentifier")
+        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: "identifier", withReuseIdentifier: UICollectionView.elementKindSectionHeader)
     }
     
     private func addSeparatorView() {
@@ -62,6 +56,8 @@ class BaseOnboardingViewController: UIViewController {
         separatorView.autoSetDimension(.height, toSize: 1)
     }
     
+    //MARK: - HUD
+
     func showHud() {
         IHProgressHUD.show()
     }
@@ -70,33 +66,32 @@ class BaseOnboardingViewController: UIViewController {
         IHProgressHUD.dismiss()
     }
     
+    //MARK: - Bind
+
+    func bind(item: ViewModel) {
+        
     }
-
-extension BaseOnboardingViewController: UICollectionViewDataSource {
     
-    //MARK: - CollectionViewDataSource
+    //MARK: - CollectionView
 
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.reuseIdentifier, for: indexPath)
-        
-        return cell
+        return UICollectionViewCell()
     }
-    
-}
-
-extension BaseOnboardingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .zero
     }
-}
 
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
+    }
+    
+    }
+ 
 //MARK: - NavigationBar Appearance
 
 extension BaseOnboardingViewController {

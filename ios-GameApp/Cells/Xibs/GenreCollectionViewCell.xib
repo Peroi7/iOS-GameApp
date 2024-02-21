@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +21,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yps-ZW-7HU" userLabel="WrapperView">
                         <rect key="frame" x="0.0" y="0.0" width="682" height="385"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AQd-k9-RUB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AQd-k9-RUB">
                                 <rect key="frame" x="0.0" y="0.0" width="682" height="192.5"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDo-MF-7mw" userLabel="GenreTitleLabel">
                                 <rect key="frame" x="16" y="16" width="650" height="30"/>
@@ -40,7 +42,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsj-92-eVM" userLabel="FavoriteButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsj-92-eVM" userLabel="FavoriteButton" customClass="SelectButton" customModule="ios_GameApp" customModuleProvider="target">
                                 <rect key="frame" x="276" y="62" width="130" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -61,6 +63,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSelect:" destination="RaH-m8-VjQ" eventType="touchUpInside" id="J7D-dg-Euw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Popular Items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDe-0s-ycn" userLabel="PopularItemsLabel">
                                 <rect key="frame" x="8" y="113" width="603" height="20"/>
@@ -86,7 +91,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="BackgroundPrimary"/>
                         <constraints>
                             <constraint firstItem="qDe-0s-ycn" firstAttribute="trailing" secondItem="KQh-0J-yRy" secondAttribute="leading" constant="-8" id="6zs-lQ-eMe"/>
                             <constraint firstItem="Jsj-92-eVM" firstAttribute="centerX" secondItem="dDo-MF-7mw" secondAttribute="centerX" id="Bqu-YH-AIT"/>
@@ -123,7 +128,10 @@
             </collectionViewCellContentView>
             <size key="customSize" width="682" height="385"/>
             <connections>
-                <outlet property="selectButton" destination="Jsj-92-eVM" id="Zji-WT-2ad"/>
+                <outlet property="backgroundImageView" destination="AQd-k9-RUB" id="eFu-Yh-QzG"/>
+                <outlet property="countLabel" destination="KQh-0J-yRy" id="Rd5-nO-xR1"/>
+                <outlet property="genreTitleLabel" destination="dDo-MF-7mw" id="bk1-S3-Em3"/>
+                <outlet property="selectButton" destination="Jsj-92-eVM" id="xKc-MI-hBW"/>
                 <outlet property="separatorView" destination="HTk-lv-lhl" id="mtW-L1-H0q"/>
                 <outlet property="wrapperView" destination="Yps-ZW-7HU" id="WNL-Yr-Zee"/>
             </connections>
@@ -131,6 +139,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <namedColor name="BackgroundPrimary">
+            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
