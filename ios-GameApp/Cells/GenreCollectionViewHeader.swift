@@ -20,6 +20,8 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
     private var headerLabel: UILabel!
     private var doneButton: UIButton!
     
+    var onDismiss:(() -> Void)?
+    
     @Published var isEnabled: Bool = false
     private var cancellables = Set<AnyCancellable>()
     
@@ -27,6 +29,7 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
     
     private func toggleEnabled() {
         $isEnabled.sink { [weak self](isEnabled) in
+            self?.doneButton.isEnabled = isEnabled
             UIView.animate(withDuration: 0.3) {
                 self?.doneButton.layer.borderColor = isEnabled ? UIColor.white.cgColor : UIColor.gray.cgColor
                 self?.doneButton.setTitleColor(isEnabled ? .white : .gray, for: .normal)
@@ -50,6 +53,7 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
         doneButton.setTitle("Done", for: .normal)
         doneButton.layer.borderWidth = 1
         doneButton.layer.cornerRadius = 4
+        doneButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         doneButton.titleLabel?.font = Constants.doneButtonFont
 
         addSubview(headerLabel)
@@ -64,6 +68,10 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
         doneButton.autoSetDimensions(to: Constants.doneButtonSize)
         
         toggleEnabled()
+    }
+    
+    @objc func dismissView() {
+        onDismiss?()
     }
     
     required init?(coder: NSCoder) {

@@ -11,7 +11,10 @@ class OnboardingViewController: BaseOnboardingViewController {
     
     private enum Constants {
         static let headerHeight: CGFloat = 60
+        static let navigationItemTitle: String = "Genres"
     }
+    
+    override var navigationItemTitle: String { return  Constants.navigationItemTitle }
     
     private let viewModel = OnboardingGenreViewModel()
     
@@ -20,6 +23,10 @@ class OnboardingViewController: BaseOnboardingViewController {
         
         bind(item: viewModel)
         viewModel.fetch()
+    }
+    
+    override func setNavigationTitle() {
+        navigationItem.title = navigationItemTitle
     }
     
     //MARK: - RegisterClass
@@ -40,7 +47,9 @@ class OnboardingViewController: BaseOnboardingViewController {
                 uSelf.showHud()
             case .loaded(let items):
                 uSelf.viewModel.items.append(contentsOf: items)
-                uSelf.collectionView.reloadData()
+                DispatchQueue.main.async {
+                    uSelf.collectionView.reloadData()
+                }
                 uSelf.dismissHud()
             case .error(let error):
                 print(error.localizedDescription)
@@ -87,6 +96,15 @@ class OnboardingViewController: BaseOnboardingViewController {
             .sink {(value) in
                 header.isEnabled = value
             }.store(in: &cancellables)
+        header.onDismiss = {
+            let view = self.navigationController?.viewControllers.filter{$0 == self.parent}
+            //test
+            print(view)
+            
+            self.view.removeFromSuperview()
+            self.removeFromParent()
+//            view?.first?.navigationItem.title = "Games Overview"
+        }
         return header
     }
 }

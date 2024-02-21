@@ -15,4 +15,5 @@ enum AppConstants {
     static let paddingSmall: CGFloat = 8.0
     
     static let keyFavoriteGenres = "keyFavoriteGenres"
+    static let itemsPerPage = 20
 }
