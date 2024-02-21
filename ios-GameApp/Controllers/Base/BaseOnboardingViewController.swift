@@ -11,12 +11,8 @@ import IHProgressHUD
 import Combine
 
 class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    private enum Constants {
-       static let navigationItemTitle: String = "Genres"
-    }
      
-    var navigationItemTitle: String { return Constants.navigationItemTitle }
+    var navigationItemTitle: String { return "" }
     var collectionView: UICollectionView!
 
     private var separatorView: UIView!
@@ -26,8 +22,11 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
         setupNavigationBarAppearance()
         addSeparatorView()
-        navigationItem.title = navigationItemTitle
         setupCollectionView()
+    }
+    
+    func setNavigationTitle() {
+        navigationItem.title = navigationItemTitle
     }
     
     //MARK: - CollectionView
@@ -106,6 +105,7 @@ extension BaseOnboardingViewController {
             navigationController?.navigationBar.standardAppearance = appearance;
             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         } else {
+            navigationController?.navigationBar.barTintColor = Colors.primaryBackground
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             navigationController?.navigationBar.isTranslucent = false

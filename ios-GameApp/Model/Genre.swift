@@ -23,6 +23,16 @@ struct Genre: Codable {
 }
 
 struct GenrePopularItem: Codable {
-    let name: String
-    let added: Int
+    var name: String
+    var added: Int
+    
+    init(name: String, added: Int) {
+        self.name = name
+        self.added = added
+    }
+    
+    init() {
+        name = ""
+        added = 0
+    }
 }

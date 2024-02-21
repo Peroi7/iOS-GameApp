@@ -10,5 +10,6 @@ import UIKit
 struct Colors {
     
     static let primaryBackground = UIColor(named: "BackgroundPrimary")!
+    static let primaryGreen = UIColor(named: "PrimaryGreen")!
     
 }

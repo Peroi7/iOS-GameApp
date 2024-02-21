@@ -12,6 +12,6 @@ protocol Responsive: Codable {
     var results: [T] { get }
 }
 
-struct GenreResponse<T: Codable>: Responsive {
+struct Response<T: Codable>: Responsive {
     var results: [T]
 }
