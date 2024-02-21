@@ -41,6 +41,10 @@ extension UICollectionView {
         register(`class`, forCellWithReuseIdentifier: `class`.reuseIdentifier)
     }
     
+    func registerHeader<T: UICollectionReusableView>(cellClass `class`: T.Type, kind: String) where T: ReusableView {
+        register(`class`, forSupplementaryViewOfKind: kind, withReuseIdentifier: `class`.reuseIdentifier)
+    }
+    
     func registerNib<T: UICollectionViewCell>(cellClass `class`: T.Type) where T: NibProvidable & ReusableView {
         register(`class`.nib, forCellWithReuseIdentifier: `class`.reuseIdentifier)
     }
