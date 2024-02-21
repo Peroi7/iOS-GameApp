@@ -36,12 +36,15 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
         let layout = CollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.addSubview(collectionView)
-        
         collectionView.autoPinEdgesToSuperviewEdges()
-        collectionView.registerNib(cellClass: GenreCollectionViewCell.self)
-        collectionView.registerHeader(cellClass: GenreCollectionViewHeader.self, kind: UICollectionView.elementKindSectionHeader)
+        registerClass()
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    public func registerClass() {
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "reuseIdentifier")
+        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: "identifier", withReuseIdentifier: UICollectionView.elementKindSectionHeader)
     }
     
     private func addSeparatorView() {

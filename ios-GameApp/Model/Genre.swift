@@ -7,10 +7,6 @@
 
 import Foundation
 
-public enum GenreItem: Int, Codable {
-    case Action = 4
-}
-
 struct Genre: Codable {
     
     let id: Int

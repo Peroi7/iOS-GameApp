@@ -9,6 +9,8 @@ import Foundation
 
 extension UserDefaults {
     
+    //MARK: - UserDefaults
+    
     func setData<T: Encodable>(encodable: T, forKey key: String) {
         if let data = try? JSONEncoder().encode(encodable) {
             set(data, forKey: key)

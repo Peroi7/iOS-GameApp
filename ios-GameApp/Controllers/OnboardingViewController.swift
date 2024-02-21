@@ -22,6 +22,13 @@ class OnboardingViewController: BaseOnboardingViewController {
         viewModel.fetch()
     }
     
+    //MARK: - RegisterClass
+    
+    override func registerClass() {
+        collectionView.registerNib(cellClass: GenreCollectionViewCell.self)
+        collectionView.registerHeader(cellClass: GenreCollectionViewHeader.self, kind: UICollectionView.elementKindSectionHeader)
+    }
+    
     //MARK: - Bind
 
     override func bind(item: ViewModel) {
@@ -42,6 +49,8 @@ class OnboardingViewController: BaseOnboardingViewController {
             }
         }.store(in: &cancellables)
     }
+    
+    //MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.items.count
@@ -66,11 +75,18 @@ class OnboardingViewController: BaseOnboardingViewController {
         return cell
     }
     
+    //MARK: - CollectionViewHeader
+    
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: Constants.headerHeight)
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GenreCollectionViewHeader.reuseIdentifier, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: GenreCollectionViewHeader.reuseIdentifier, for: indexPath) as! GenreCollectionViewHeader
+        viewModel.$isItemFavorited
+            .sink {(value) in
+                header.isEnabled = value
+            }.store(in: &cancellables)
+        return header
     }
 }

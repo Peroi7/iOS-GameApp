@@ -14,9 +14,10 @@ class OnboardingGenreViewModel: Selection, ViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     private (set) var state = PassthroughSubject<State, Never>()
-    
-    var selectedGenres: [GenreItem] {
-        get { UserDefaults.standard.getData([GenreItem].self, forKey:  AppConstants.keyFavoriteGenres) ?? []
+    @Published var isItemFavorited: Bool = false
+
+    var selectedGenres: [Int] {
+        get { UserDefaults.standard.getData([Int].self, forKey:  AppConstants.keyFavoriteGenres) ?? []
         }
         set {  UserDefaults.standard.setData(encodable: newValue, forKey: AppConstants.keyFavoriteGenres)
         }
@@ -41,11 +42,14 @@ class OnboardingGenreViewModel: Selection, ViewModel {
     //MARK: - Fetch
     
     func appendSelectedGenre(isSelected: Bool, id: Int) {
-        guard let genre = GenreItem(rawValue: id) else { return }
         if isSelected {
-            selectedGenres.removeAll(where: {$0.rawValue == id})
+            selectedGenres.append(id)
+            isItemFavorited = true
         } else {
-            selectedGenres.append(genre)
+            selectedGenres.removeAll(where: {$0 == id})
+            if selectedGenres.isEmpty {
+                isItemFavorited = false
+            }
         }
     }
     

@@ -22,6 +22,5 @@ extension Bundle {
             }
         }
         return value ?? fatalError("Property list file \(String(describing: resource)) is missing or mistyped key.")
-        // sometimes better to crash with message instead of having silent bug
     }
 }

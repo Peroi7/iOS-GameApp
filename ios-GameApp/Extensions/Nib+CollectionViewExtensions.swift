@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  Nib+CollectionViewExtensions.swift
 //  ios-GameApp
 //
 //  Created by Pero Ivic on 17/02/2024.
