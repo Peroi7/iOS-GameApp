@@ -16,7 +16,7 @@ class GameViewModel: Selection, ViewModel {
     private (set) var state = PassthroughSubject<State, Never>()
     private var currentPage = 1
     
-    var itemId: Int?
+    var id: Int?
     var name: String?
     private var rating: Decimal?
     private var added: Int?
@@ -43,7 +43,7 @@ class GameViewModel: Selection, ViewModel {
     }
     
     var imageTransformer: SDImageResizingTransformer {
-        return SDImageResizingTransformer(size: CGSize(width: 120, height: 120), scaleMode: .aspectFill)
+        return SDImageResizingTransformer(size: CGSize(width: 110, height: 110), scaleMode: .aspectFill)
     }
     
     //MARK: - Pagination
@@ -59,7 +59,7 @@ class GameViewModel: Selection, ViewModel {
     
     init(model: Game? = nil) {
         guard let game = model else { return }
-        itemId = game.id
+        id = game.id
         name = game.name
         added = game.added
         metacritic = game.metacritic
@@ -101,10 +101,10 @@ class GameViewModel: Selection, ViewModel {
 
 extension GameViewModel: Hashable {
     static func == (lhs: GameViewModel, rhs: GameViewModel) -> Bool {
-        return lhs.itemId == rhs.itemId
+        return lhs.id == rhs.id
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(itemId)
+        hasher.combine(id)
     }
 }

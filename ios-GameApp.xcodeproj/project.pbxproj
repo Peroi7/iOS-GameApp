@@ -45,6 +45,7 @@
 		74BA24482B7FA94E004B884B /* ios_GameAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA24472B7FA94E004B884B /* ios_GameAppUITests.swift */; };
 		74BA245A2B7FA9C9004B884B /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 74BA24592B7FA9C9004B884B /* PureLayout */; };
 		74BA245F2B7FAFC4004B884B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA245E2B7FAFC4004B884B /* Colors.swift */; };
+		74C14C1E2B86D0E100023921 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C14C1D2B86D0E100023921 /* NavigationController.swift */; };
 		74CEAB092B842E7B002724E7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CEAB082B842E7B002724E7 /* OnboardingViewController.swift */; };
 		74DF02B12B81338F0011486B /* Nib+CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF02B02B81338F0011486B /* Nib+CollectionViewExtensions.swift */; };
 		74F6D2A02B8259F800989E32 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74F6D29F2B8259F800989E32 /* GenreCollectionViewCell.xib */; };
@@ -109,6 +110,7 @@
 		74BA24472B7FA94E004B884B /* ios_GameAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_GameAppUITests.swift; sourceTree = "<group>"; };
 		74BA24492B7FA94E004B884B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74BA245E2B7FAFC4004B884B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		74C14C1D2B86D0E100023921 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		74CEAB082B842E7B002724E7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		74DF02B02B81338F0011486B /* Nib+CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nib+CollectionViewExtensions.swift"; sourceTree = "<group>"; };
 		74F6D29F2B8259F800989E32 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			children = (
 				7459C8012B850C01005BEA30 /* SelectButton.swift */,
 				74840E252B83B48400C2C261 /* PopularItemsStackView.swift */,
+				74C14C1D2B86D0E100023921 /* NavigationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,10 +245,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		74BA24192B7FA948004B884B = {
+		74B3009D2B86C7A800A0C247 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				746E779E2B86290100248F76 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		74BA24192B7FA948004B884B = {
+			isa = PBXGroup;
+			children = (
 				74BA24242B7FA948004B884B /* ios-GameApp */,
 				74BA243B2B7FA94E004B884B /* ios-GameAppTests */,
 				74BA24462B7FA94E004B884B /* ios-GameAppUITests */,
@@ -272,6 +282,7 @@
 				746E77882B861BF300248F76 /* Cells */,
 				746E778F2B861D5000248F76 /* Controllers */,
 				746E77962B86207100248F76 /* Model */,
+				74B3009D2B86C7A800A0C247 /* Coordinator */,
 				746E778E2B861CB700248F76 /* Extensions */,
 				746E77972B86207D00248F76 /* Helpers */,
 				74BA24252B7FA948004B884B /* AppDelegate.swift */,
@@ -455,6 +466,7 @@
 				74BA242A2B7FA948004B884B /* BaseOnboardingViewController.swift in Sources */,
 				747A55B62B83C45500F39515 /* Genre.swift in Sources */,
 				746E779F2B86290100248F76 /* AppCoordinator.swift in Sources */,
+				74C14C1E2B86D0E100023921 /* NavigationController.swift in Sources */,
 				748697E72B841BE6005B8D39 /* ViewModel.swift in Sources */,
 				74CEAB092B842E7B002724E7 /* OnboardingViewController.swift in Sources */,
 				747A55AE2B83C3C800F39515 /* Response.swift in Sources */,

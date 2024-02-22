@@ -14,5 +14,6 @@ public class Selection {
 
 public protocol ViewModel: Selection {
     var items: [ViewModel] { get }
+    var id: Int? { get set }
 }
 
