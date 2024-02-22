@@ -26,14 +26,14 @@ class OnboardingGenreViewModel: Selection, ViewModel {
     //MARK: - Init
     init(model: Genre? = nil) {
         guard let model = model else { return }
-        itemId = model.id
+        id = model.id
         name = model.name
         gamesCount = model.gamesCount
         image = model.imageBackground
         games = Array(model.games.prefix(3))
     }
     
-    var itemId: Int?
+    var id: Int?
     var name: String?
     private var image: String?
     private var gamesCount: Int?
@@ -76,7 +76,7 @@ class OnboardingGenreViewModel: Selection, ViewModel {
     }
     
     var imageTransformer: SDImageResizingTransformer {
-        return SDImageResizingTransformer(size: CGSize(width: 200, height: 200), scaleMode: .aspectFill)
+        return SDImageResizingTransformer(size: CGSize(width: 110, height: 110), scaleMode: .aspectFill)
     }
 
     //MARK: - Fetch
@@ -89,6 +89,24 @@ class OnboardingGenreViewModel: Selection, ViewModel {
             selectedGenres.removeAll(where: {$0 == id})
             if selectedGenres.isEmpty {
                 isItemFavorited = false
+            }
+        }
+    }
+    
+    func editedGenres(isEdit: Bool) {
+        if isEdit {
+            selectedGenres.forEach { (id) in
+                guard  let selectedItemIndex = items.firstIndex(where: {$0.id == id}) else { return }
+                items[selectedItemIndex].isSelected = true
+            }
+        }
+    }
+    
+    func onSelected(button: UIButton, isSelected: Bool) {
+        items[button.tag].isSelected = isSelected
+        if let selectedItem = items[button.tag] as? OnboardingGenreViewModel {
+            if let itemId = selectedItem.id {
+               appendSelectedGenre(isSelected: isSelected, id: itemId)
             }
         }
     }

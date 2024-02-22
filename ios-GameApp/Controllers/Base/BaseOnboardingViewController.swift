@@ -11,8 +11,6 @@ import IHProgressHUD
 import Combine
 
 class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-     
-    var navigationItemTitle: String { return "" }
     var collectionView: UICollectionView!
 
     private var separatorView: UIView!
@@ -23,10 +21,6 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
         setupNavigationBarAppearance()
         addSeparatorView()
         setupCollectionView()
-    }
-    
-    func setNavigationTitle() {
-        navigationItem.title = navigationItemTitle
     }
     
     //MARK: - CollectionView
@@ -44,6 +38,16 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
     public func registerClass() {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "reuseIdentifier")
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: "identifier", withReuseIdentifier: UICollectionView.elementKindSectionHeader)
+    }
+    
+    func addRightBarButton() {
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon"), style: .plain, target: self, action: #selector(onSettings))
+        navigationItem.rightBarButtonItem = settingsButton
+        navigationItem.rightBarButtonItem?.tintColor = .white
+    }
+    
+    @objc func onSettings() {
+        AppCoordinator.shared.openSettings(parent: self)
     }
     
     private func addSeparatorView() {
@@ -101,11 +105,14 @@ extension BaseOnboardingViewController {
             appearance.configureWithTransparentBackground()
             appearance.backgroundColor = Colors.primaryBackground
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.shadowColor = .white
+            navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.standardAppearance = appearance;
             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         } else {
             navigationController?.navigationBar.barTintColor = Colors.primaryBackground
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             navigationController?.navigationBar.isTranslucent = false

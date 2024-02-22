@@ -78,6 +78,7 @@ class GenreCollectionViewCell: UICollectionViewCell, NibProvidable, ReusableView
             thirdStackViewItem.configure(gameTitle: viewModel.thirdStackItem.name, gameCount: viewModel.thirdStackItem.added.decimal())
             backgroundImageView.sd_imageTransition = .fade
             backgroundImageView.sd_setImage(with: viewModel.backgroundURL, placeholderImage: nil, context: [.imageTransformer: viewModel.imageTransformer])
+            selectButton.isSelected = viewModel.isSelected
             selectButton.toggleSelection(isSelected: viewModel.isSelected)
         }
     }

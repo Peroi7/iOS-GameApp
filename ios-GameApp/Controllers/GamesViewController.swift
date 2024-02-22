@@ -10,18 +10,19 @@ import UIKit
 class GamesViewController: BaseOnboardingViewController {
 
     private let viewModel = GameViewModel()
+    @Published var shouldFetchData: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind(item: viewModel)
-        viewModel.fetch(isPagging: false)
         
-//        addChild(child)
-//        child.view.frame = view.frame
-//        view.addSubview(child.view)
-//        child.didMove(toParent: self)
-//        self.navigationItem.title = "Genres"
-        
+        $shouldFetchData
+            .sink { [weak self](shouldFetch) in
+                if shouldFetch {
+                    guard let uSelf = self else { return }
+                    uSelf.bind(item: uSelf.viewModel)
+                    uSelf.viewModel.fetch(isPagging: false)
+                }
+            }.store(in: &cancellables)
     }
     
     //MARK: - Bind
@@ -34,6 +35,7 @@ class GamesViewController: BaseOnboardingViewController {
             case .loading:
                 uSelf.showHud()
             case .loaded(let items):
+                uSelf.viewModel.items.removeAll()
                 uSelf.viewModel.items.append(contentsOf: items)
                 DispatchQueue.main.async {
                     uSelf.collectionView.reloadData()

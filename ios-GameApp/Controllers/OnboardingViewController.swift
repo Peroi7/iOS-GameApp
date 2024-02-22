@@ -11,22 +11,24 @@ class OnboardingViewController: BaseOnboardingViewController {
     
     private enum Constants {
         static let headerHeight: CGFloat = 60
-        static let navigationItemTitle: String = "Genres"
     }
     
-    override var navigationItemTitle: String { return  Constants.navigationItemTitle }
-    
     private let viewModel = OnboardingGenreViewModel()
+    let isEdit: Bool
+    
+    init(isEdit: Bool) {
+        self.isEdit = isEdit
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bind(item: viewModel)
         viewModel.fetch()
-    }
-    
-    override func setNavigationTitle() {
-        navigationItem.title = navigationItemTitle
     }
     
     //MARK: - RegisterClass
@@ -39,6 +41,7 @@ class OnboardingViewController: BaseOnboardingViewController {
     //MARK: - Bind
 
     override func bind(item: ViewModel) {
+        showHud()
         viewModel.state.sink { _ in
         } receiveValue: {[weak self] state in
             guard let uSelf = self else { return }
@@ -68,16 +71,13 @@ class OnboardingViewController: BaseOnboardingViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = viewModel.items[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.reuseIdentifier, for: indexPath) as! GenreCollectionViewCell
+        
         cell.selectButton.tag = indexPath.item
-        let selectedItemIndex = cell.selectButton.tag
-        cell.onSelected 
+        viewModel.editedGenres(isEdit: isEdit)
+        cell.onSelected
             .sink {[weak self] (isSelected) in
-                self?.viewModel.items[selectedItemIndex].isSelected = isSelected
-                if let selectedItem = self?.viewModel.items[selectedItemIndex] as? OnboardingGenreViewModel {
-                    if let itemId = selectedItem.itemId {
-                        self?.viewModel.appendSelectedGenre(isSelected: isSelected, id: itemId)
-                    }
-                }
+                guard let uSelf = self else { return }
+                uSelf.viewModel.onSelected(button: cell.selectButton, isSelected: isSelected)
             }.store(in: &cancellables)
         cell.configure(viewModel: item)
         
@@ -96,15 +96,15 @@ class OnboardingViewController: BaseOnboardingViewController {
             .sink {(value) in
                 header.isEnabled = value
             }.store(in: &cancellables)
-        header.onDismiss = {
-            let view = self.navigationController?.viewControllers.filter{$0 == self.parent}
-            //test
-            print(view)
-            
-            self.view.removeFromSuperview()
-            self.removeFromParent()
-//            view?.first?.navigationItem.title = "Games Overview"
-        }
+        header.configure(isEdit: isEdit)
+        header.onDismiss = {[weak self] in
+            guard let uSelf = self else { return }
+            if uSelf.isEdit {
+                AppCoordinator.shared.dismissSettings(viewController: uSelf)
+            } else {
+                AppCoordinator.shared.removeOnboarding(child: uSelf)
+            }
+        } // better to disimss from viewController
         return header
     }
 }

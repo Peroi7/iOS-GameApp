@@ -21,10 +21,6 @@ class GameCollectionViewCell: UICollectionViewCell, NibProvidable, ReusableView 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupViews()
-    }
-    
-    private func setupViews() {
         metacriticLabel.layer.borderColor = Colors.primaryGreen.cgColor
     }
     

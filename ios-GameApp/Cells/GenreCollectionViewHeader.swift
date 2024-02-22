@@ -14,6 +14,7 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
         static let font = UIFont.systemFont(ofSize: 20, weight: .bold)
         static let doneButtonFont = UIFont.boldSystemFont(ofSize: 18)
         static let headerText = "Select your favorite genres"
+        static let editHeaderText = "Edit your selected genres"
         static let doneButtonSize: CGSize = .init(width: 80, height: 30)
     }
     
@@ -29,11 +30,11 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
     
     private func toggleEnabled() {
         $isEnabled.sink { [weak self](isEnabled) in
-            self?.doneButton.isEnabled = isEnabled
+            guard let uSelf = self else { return }
             UIView.animate(withDuration: 0.3) {
-                self?.doneButton.layer.borderColor = isEnabled ? UIColor.white.cgColor : UIColor.gray.cgColor
-                self?.doneButton.setTitleColor(isEnabled ? .white : .gray, for: .normal)
-                self?.doneButton.backgroundColor = isEnabled ? .clear : Colors.primaryBackground
+                uSelf.doneButton.layer.borderColor = isEnabled ? UIColor.white.cgColor : UIColor.gray.cgColor
+                uSelf.doneButton.setTitleColor(isEnabled ? .white : .gray, for: .normal)
+                uSelf.doneButton.backgroundColor = isEnabled ? .clear : Colors.primaryBackground
             }
         }.store(in: &cancellables)
     }
@@ -44,15 +45,13 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
         super.init(frame: frame)
                 
         headerLabel = UILabel()
-        headerLabel.text = Constants.headerText
         headerLabel.textColor = .white
         headerLabel.textAlignment = .left
         headerLabel.font = Constants.font
         
         doneButton = UIButton()
-        doneButton.setTitle("Done", for: .normal)
         doneButton.layer.borderWidth = 1
-        doneButton.layer.cornerRadius = 4
+        doneButton.layer.cornerRadius = 6
         doneButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         doneButton.titleLabel?.font = Constants.doneButtonFont
 
@@ -72,6 +71,13 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
     
     @objc func dismissView() {
         onDismiss?()
+    }
+    
+    func configure(isEdit: Bool) {
+        headerLabel.text = isEdit ? Constants.editHeaderText : Constants.headerText
+        isEnabled = isEdit == true
+        isEnabled = LocalData.shared.loadSavedGenres().count != 0
+        doneButton.setTitle("Done", for: .normal)
     }
     
     required init?(coder: NSCoder) {
