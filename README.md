@@ -25,7 +25,7 @@ Design decision was to recreate Rawg.io UI for mobile version in swift using UIK
 
 **Screenshots**
 
-* iPhone 12 Pro Max
+* iPhone 12 Pro Max (iOS 14.4 )
 
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2024-02-23 at 17 49 51](https://github.com/Peroi7/iOS-GameApp/assets/50051000/cc6ea381-aadb-4abd-b4f4-4144b580bdbe)
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2024-02-23 at 17 50 04](https://github.com/Peroi7/iOS-GameApp/assets/50051000/cf1f2447-67e5-49d1-ab9a-1e9b3602500d)
@@ -36,4 +36,4 @@ Design decision was to recreate Rawg.io UI for mobile version in swift using UIK
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2024-02-23 at 17 51 13](https://github.com/Peroi7/iOS-GameApp/assets/50051000/fde6947a-fe2b-44e2-a895-639153719792)
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2024-02-23 at 19 34 27](https://github.com/Peroi7/iOS-GameApp/assets/50051000/db47a6e7-98f8-41d1-afce-70dddf2bb222)
 
-- Reason for developing in Xcode 12.x is due to crashing MacOS Monterey software update on my MacbookAir 15"
+- Reason for developing in Xcode 12.x & iOS 14 is due to crashing MacOS Monterey software update on my MacbookAir 15"
