@@ -9,7 +9,9 @@ import UIKit
 import Combine
 
 fileprivate protocol NetworkApi {
-    static func fetchGenres() -> AnyPublisher<GenreResponse<Genre>, Error>
+    static func fetchGenres() -> AnyPublisher<Response<Genre>, Error>
+    static func fetchGames(page: Int) -> AnyPublisher<Response<Game>, Error>
+    static func fetchDetails(id: Int) -> AnyPublisher<GameDetails, Error>
 }
 
 class Network: NetworkApi {
@@ -18,10 +20,25 @@ class Network: NetworkApi {
     
     fileprivate enum FetchType: String {
         case genre = "genres"
+        case games = "games"
+        case details = "games/"
     }
     
-    static func fetchGenres() -> AnyPublisher<GenreResponse<Genre>, Error> {
+    static func fetchGenres() -> AnyPublisher<Response<Genre>, Error> {
         let request = fire(parameters: ["key" : apiKey], type: .genre)
+        return Network.fireRequest(request)
+    }
+    
+    static func fetchGames(page: Int) -> AnyPublisher<Response<Game>, Error> {
+        let savedGenres = LocalData.shared.loadSavedGenres().map { String($0)}
+        let genres = savedGenres.joined(separator: ",")
+        let request = fire(parameters: ["key" : apiKey, "genres" : genres, "page_size" : AppConstants.itemsPerPage, "page": page], type: .games)
+        return Network.fireRequest(request)
+    }
+    
+    static func fetchDetails(id: Int) -> AnyPublisher<GameDetails, Error> {
+        var request = fire(parameters: ["key" : apiKey], type: .details)
+        request.url?.appendPathComponent("\(id)")
         return Network.fireRequest(request)
     }
 }

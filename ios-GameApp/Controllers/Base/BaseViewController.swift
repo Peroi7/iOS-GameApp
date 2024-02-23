@@ -10,13 +10,7 @@ import PureLayout
 import IHProgressHUD
 import Combine
 
-class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    private enum Constants {
-       static let navigationItemTitle: String = "Genres"
-    }
-     
-    var navigationItemTitle: String { return Constants.navigationItemTitle }
+class BaseViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView!
 
     private var separatorView: UIView!
@@ -25,9 +19,8 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarAppearance()
-        addSeparatorView()
-        navigationItem.title = navigationItemTitle
         setupCollectionView()
+        addSeparatorView()
     }
     
     //MARK: - CollectionView
@@ -47,7 +40,19 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: "identifier", withReuseIdentifier: UICollectionView.elementKindSectionHeader)
     }
     
-    private func addSeparatorView() {
+    func addRightBarButton() {
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon"), style: .plain, target: self, action: #selector(onSettings))
+        navigationItem.rightBarButtonItem = settingsButton
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .white
+    }
+    
+    @objc func onSettings() {
+        AppCoordinator.shared.openSettings(parent: self)
+    }
+    
+   func addSeparatorView() {
         separatorView = UIView()
         separatorView.backgroundColor = .white
         guard let navigationBar = navigationController?.navigationBar else { return }
@@ -94,7 +99,7 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
  
 //MARK: - NavigationBar Appearance
 
-extension BaseOnboardingViewController {
+extension BaseViewController {
     
     func setupNavigationBarAppearance() {
         if #available(iOS 15, *) {
@@ -102,10 +107,14 @@ extension BaseOnboardingViewController {
             appearance.configureWithTransparentBackground()
             appearance.backgroundColor = Colors.primaryBackground
             appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.shadowColor = .white
+            navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.standardAppearance = appearance;
             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         } else {
+            navigationController?.navigationBar.barTintColor = Colors.primaryBackground
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             navigationController?.navigationBar.isTranslucent = false

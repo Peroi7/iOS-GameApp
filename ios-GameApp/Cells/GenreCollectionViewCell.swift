@@ -67,23 +67,18 @@ class GenreCollectionViewCell: UICollectionViewCell, NibProvidable, ReusableView
         backgroundImageView.layer.addGradient(colors: [Colors.primaryBackground.withAlphaComponent(0.6).cgColor, UIColor.gray.withAlphaComponent(0.45).cgColor])
     }
     
+    //MARK: - Configure
+
     func configure(viewModel: ViewModel) {
         if let viewModel = viewModel as? OnboardingGenreViewModel {
-            genreTitleLabel.attributedText = NSAttributedString(string: viewModel.name ?? "", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            
-            countLabel.text = viewModel.gamesCount?.decimal()
-            
-            if let firstItem = viewModel.games.first, let secondItem = viewModel.games.dropFirst().first, let thirdItem = viewModel.games.dropFirst().last  {
-                firstStackViewItem.configure(gameTitle: firstItem.name, gameCount: firstItem.added.decimal())
-                secondStackViewItem.configure(gameTitle: secondItem.name, gameCount: secondItem.added.decimal())
-                thirdStackViewItem.configure(gameTitle: thirdItem.name, gameCount: thirdItem.added.decimal())
-            }
-            
+            genreTitleLabel.attributedText = viewModel.genreAttributed
+            countLabel.text = viewModel.gamesCountFormatted
+            firstStackViewItem.configure(gameTitle: viewModel.firstStackItem.name, gameCount: viewModel.firstStackItem.added.decimal())
+            secondStackViewItem.configure(gameTitle: viewModel.secondStackItem.name, gameCount: viewModel.secondStackItem.added.decimal())
+            thirdStackViewItem.configure(gameTitle: viewModel.thirdStackItem.name, gameCount: viewModel.thirdStackItem.added.decimal())
             backgroundImageView.sd_imageTransition = .fade
-            guard let viewModelImage = viewModel.image else { return }
-            guard let URL = URL(string: viewModelImage) else { return }
-            backgroundImageView.sd_setImage(with: URL)
-            
+            backgroundImageView.sd_setImage(with: viewModel.backgroundURL, placeholderImage: nil, context: [.imageTransformer: viewModel.imageTransformer])
+            selectButton.isSelected = viewModel.isSelected
             selectButton.toggleSelection(isSelected: viewModel.isSelected)
         }
     }
