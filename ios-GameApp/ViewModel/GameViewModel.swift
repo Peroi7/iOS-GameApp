@@ -46,6 +46,8 @@ class GameViewModel: Selection, ViewModel {
         return SDImageResizingTransformer(size: CGSize(width: 110, height: 110), scaleMode: .aspectFill)
     }
     
+    @Published var shouldFetchData: Bool = false
+    
     //MARK: - Pagination
     
     func paginate(indexPath: IndexPath, items: [ViewModel]) {

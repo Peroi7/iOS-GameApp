@@ -11,11 +11,12 @@ class AppCoordinator {
     
     static let shared = AppCoordinator()
     private var parentViewController: UIViewController!
-    private var preSavedGenres: [Int] = LocalData.shared.loadSavedGenres()
+    private var preSavedGenres: [Int] = []
     
     private enum Constants {
         static let gamesOverviewTitle = "Games Overview"
         static let genresOverviewTitle = "Genres"
+        static let detailsNavigationTitle = "About"
     }
     
     private var isOnboardingPresented: Bool = UserDefaults.standard.value(forKey: AppConstants.keyIsOnboardingPresented) as? Bool ?? false {
@@ -34,8 +35,7 @@ class AppCoordinator {
             addChild(parent: gamesViewController, isEdit: false)
         } else {
             gamesViewController.navigationItem.title = Constants.gamesOverviewTitle
-            gamesViewController.shouldFetchData = true
-            gamesViewController.addRightBarButton()
+            gamesViewController.viewModel.shouldFetchData = true
         }
         
         window?.makeKeyAndVisible()
@@ -63,7 +63,7 @@ class AppCoordinator {
         if let parentViewController = parentViewController as? GamesViewController {
             parentViewController.navigationItem.title = Constants.gamesOverviewTitle
             parentViewController.addRightBarButton()
-            parentViewController.shouldFetchData = true
+            parentViewController.viewModel.shouldFetchData = true
             isOnboardingPresented = true
         }
     }
@@ -73,6 +73,7 @@ class AppCoordinator {
     func openSettings(parent: UIViewController) {
         let settingsViewController = OnboardingViewController(isEdit: true)
         settingsViewController.modalPresentationStyle = .fullScreen
+        preSavedGenres = LocalData.shared.loadSavedGenres()
         parent.present(settingsViewController, animated: true)
     }
     
@@ -80,9 +81,18 @@ class AppCoordinator {
         viewController.dismiss(animated: true)
         if let parentViewController = parentViewController as? GamesViewController {
             if LocalData.shared.loadSavedGenres() != preSavedGenres {
-                parentViewController.shouldFetchData = true
+                parentViewController.viewModel.shouldFetchData = true
                 preSavedGenres = LocalData.shared.loadSavedGenres()
             }
         }
+    }
+    
+    //MARK: - Details
+    
+    func pushDetailsViewController(id: Int) {
+        let details = DetailsViewController(id: id)
+        details.navigationItem.largeTitleDisplayMode = .never
+        details.navigationItem.title = Constants.detailsNavigationTitle
+        parentViewController.navigationController?.pushViewController(details, animated: true)
     }
 }

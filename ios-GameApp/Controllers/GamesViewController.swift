@@ -7,15 +7,14 @@
 
 import UIKit
 
-class GamesViewController: BaseOnboardingViewController {
+class GamesViewController: BaseViewController {
 
-    private let viewModel = GameViewModel()
-    @Published var shouldFetchData: Bool = false
+    let viewModel = GameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        $shouldFetchData
+        viewModel.$shouldFetchData
             .sink { [weak self](shouldFetch) in
                 if shouldFetch {
                     guard let uSelf = self else { return }
@@ -37,6 +36,7 @@ class GamesViewController: BaseOnboardingViewController {
             case .loaded(let items):
                 uSelf.viewModel.items.removeAll()
                 uSelf.viewModel.items.append(contentsOf: items)
+                uSelf.addRightBarButton()
                 DispatchQueue.main.async {
                     uSelf.collectionView.reloadData()
                 }
@@ -68,7 +68,16 @@ class GamesViewController: BaseOnboardingViewController {
         return cell
     }
     
+    override func addSeparatorView() {
+        super.addSeparatorView()
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let id = viewModel.items[indexPath.item].id else { return }
+        AppCoordinator.shared.pushDetailsViewController(id: id)
     }
 }
