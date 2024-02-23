@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingViewController: BaseOnboardingViewController {
+class OnboardingViewController: BaseViewController {
     
     private enum Constants {
         static let headerHeight: CGFloat = 60

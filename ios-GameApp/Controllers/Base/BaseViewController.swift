@@ -10,7 +10,7 @@ import PureLayout
 import IHProgressHUD
 import Combine
 
-class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class BaseViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView!
 
     private var separatorView: UIView!
@@ -19,8 +19,8 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarAppearance()
-        addSeparatorView()
         setupCollectionView()
+        addSeparatorView()
     }
     
     //MARK: - CollectionView
@@ -44,13 +44,15 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
         let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsIcon"), style: .plain, target: self, action: #selector(onSettings))
         navigationItem.rightBarButtonItem = settingsButton
         navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .white
     }
     
     @objc func onSettings() {
         AppCoordinator.shared.openSettings(parent: self)
     }
     
-    private func addSeparatorView() {
+   func addSeparatorView() {
         separatorView = UIView()
         separatorView.backgroundColor = .white
         guard let navigationBar = navigationController?.navigationBar else { return }
@@ -97,7 +99,7 @@ class BaseOnboardingViewController: UIViewController, UICollectionViewDelegate, 
  
 //MARK: - NavigationBar Appearance
 
-extension BaseOnboardingViewController {
+extension BaseViewController {
     
     func setupNavigationBarAppearance() {
         if #available(iOS 15, *) {
