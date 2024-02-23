@@ -169,7 +169,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skip 125" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKG-9W-x7B" userLabel="SkipLabel">
-                                    <rect key="frame" x="134" y="434.5" width="62.5" height="20"/>
+                                    <rect key="frame" x="124" y="434.5" width="62.5" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="NXc-Hs-p4W"/>
                                     </constraints>
@@ -284,7 +284,7 @@ GTA Online will provide a lot of additional challenge even for the experienced p
                                 <constraint firstItem="KJK-zn-dbo" firstAttribute="leading" secondItem="5yN-A6-Cbz" secondAttribute="trailing" constant="16" id="YUh-0c-FPS"/>
                                 <constraint firstItem="Shf-92-BSJ" firstAttribute="leading" secondItem="jM2-f7-qzA" secondAttribute="leading" constant="16" id="Z4V-xN-KZs"/>
                                 <constraint firstItem="34e-oD-IZB" firstAttribute="top" secondItem="XeG-PV-zJM" secondAttribute="bottom" constant="16" id="ape-Ud-n0B"/>
-                                <constraint firstItem="YKG-9W-x7B" firstAttribute="leading" secondItem="NJo-kx-YFQ" secondAttribute="trailing" constant="16" id="awS-w9-wx3"/>
+                                <constraint firstItem="YKG-9W-x7B" firstAttribute="leading" secondItem="NJo-kx-YFQ" secondAttribute="trailing" constant="6" id="awS-w9-wx3"/>
                                 <constraint firstItem="Gxy-DQ-eIs" firstAttribute="top" secondItem="Shf-92-BSJ" secondAttribute="bottom" constant="16" id="b9E-UO-4la"/>
                                 <constraint firstAttribute="trailing" secondItem="1i2-UX-D7b" secondAttribute="trailing" constant="16" id="cDs-Tw-aau"/>
                                 <constraint firstItem="5yN-A6-Cbz" firstAttribute="leading" secondItem="jM2-f7-qzA" secondAttribute="leading" constant="16" id="dbO-I9-hSm"/>
