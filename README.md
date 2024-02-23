@@ -21,7 +21,7 @@
 * Programmatically (Pure Layout)
 * Xib
 
-Design decision was to recreate Rawg.io UI for mobile version in swift using UIKit with PureLayout additional extensions. With Xib files & UI library great is powerful mix to create adaptive elements.
+Design decision was to recreate Rawg.io UI for mobile version in swift using UIKit with PureLayout additional extensions. Xib files & UI library is powerful mix to create great adaptive elements.
 
 **Screenshots**
 
