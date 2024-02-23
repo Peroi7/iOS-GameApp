@@ -24,6 +24,7 @@ class OnboardingGenreViewModel: Selection, ViewModel {
     }
     
     //MARK: - Init
+    
     init(model: Genre? = nil) {
         guard let model = model else { return }
         id = model.id
@@ -110,6 +111,8 @@ class OnboardingGenreViewModel: Selection, ViewModel {
             }
         }
     }
+    
+    //MARK: - Init
     
     func fetch() {
         state.send(.loading)

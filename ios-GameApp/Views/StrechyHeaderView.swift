@@ -7,7 +7,6 @@
 
 import Foundation
 import PureLayout
-import SDWebImage
 
 //MARK: - StretchyImageView
 

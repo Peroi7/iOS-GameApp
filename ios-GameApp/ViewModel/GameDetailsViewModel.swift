@@ -81,8 +81,7 @@ class GameDetailsViewModel: Selection, ViewModel {
     var websiteAttributed: NSAttributedString {
       return NSAttributedString(string: website ?? "", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
-        
-
+    
     //MARK: - Init
 
     init(model: GameDetails? = nil) {

@@ -11,8 +11,8 @@ import IHProgressHUD
 import Combine
 
 class BaseViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     var collectionView: UICollectionView!
-
     private var separatorView: UIView!
     public var cancellables = Set<AnyCancellable>()
     
