@@ -11,6 +11,10 @@ struct LocalData {
     
     static let shared = LocalData()
     
+    var isEmpty: Bool {
+        return loadSavedGenres().count == 0
+    }
+    
     func loadSavedGenres() -> [Int] {
         return UserDefaults.standard.getData([Int].self, forKey:  AppConstants.keyFavoriteGenres)?.uniqued() ?? []
     }

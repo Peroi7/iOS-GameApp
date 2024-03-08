@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="R7l-kz-qFq" customClass="GameDetailsView" customModule="ios_GameApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cec-2i-inV">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="44" width="428" height="882"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn0-t5-9ah" userLabel="SafeAreaView">
+                            <rect key="frame" x="0.0" y="0.0" width="428" height="0.0"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jM2-f7-qzA" userLabel="ContainerView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1219"/>
+                            <rect key="frame" x="0.0" y="0.0" width="428" height="1045.6666666666667"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hg-4U-dcx" userLabel="StrechyHeaderContainer">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="240"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="240" id="Vl2-cZ-B1J"/>
@@ -35,6 +40,7 @@
                                         <constraint firstAttribute="height" constant="30" id="fjc-IO-1XM"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -44,7 +50,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVERAGE PLAYTIME: 74 H" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJK-zn-dbo">
-                                    <rect key="frame" x="152" y="256" width="152" height="30"/>
+                                    <rect key="frame" x="152" y="256" width="260" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="4il-DQ-Suv"/>
                                     </constraints>
@@ -61,13 +67,13 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="The Witcher 3: Wild Hunt" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shf-92-BSJ" userLabel="TitleLabel">
-                                    <rect key="frame" x="16" y="302" width="288" height="62.5"/>
+                                    <rect key="frame" x="16" y="302" width="396" height="31.333333333333314"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxy-DQ-eIs" userLabel="RatingsLabel">
-                                    <rect key="frame" x="16" y="380.5" width="100" height="20"/>
+                                    <rect key="frame" x="16" y="349.33333333333331" width="100" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="oKN-V2-GP6"/>
                                         <constraint firstAttribute="height" constant="20" id="qoc-rv-IGC"/>
@@ -86,7 +92,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FC5-PF-696" userLabel="ExceptionalDot">
-                                    <rect key="frame" x="16" y="416.5" width="8" height="8"/>
+                                    <rect key="frame" x="16" y="385.33333333333331" width="8" height="8"/>
                                     <color key="backgroundColor" red="0.41960784313725491" green="0.73333333333333328" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="tVi-OD-Elo"/>
@@ -99,7 +105,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exceptional 4036" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF2-Ld-uwt" userLabel="ExceptionalLabel">
-                                    <rect key="frame" x="30" y="410.5" width="128.5" height="20"/>
+                                    <rect key="frame" x="30" y="379.33333333333331" width="128.66666666666666" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="hDI-Fq-rUu"/>
                                     </constraints>
@@ -108,7 +114,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zor-cD-9tn" userLabel="RecommendedDot">
-                                    <rect key="frame" x="174.5" y="416.5" width="8" height="8"/>
+                                    <rect key="frame" x="174.66666666666666" y="385.33333333333331" width="8" height="8"/>
                                     <color key="backgroundColor" red="0.22745098039215686" green="0.29019607843137252" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="1Kn-IU-Kl1"/>
@@ -122,8 +128,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Recommended 2245" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-UX-D7b" userLabel="RecommendedLabel">
-                                    <rect key="frame" x="188.5" y="410.5" width="115.5" height="20"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Recommended 2245" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i2-UX-D7b" userLabel="RecommendedLabel">
+                                    <rect key="frame" x="188.66666666666663" y="379.33333333333331" width="223.33333333333337" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Gh1-M6-pNW"/>
                                     </constraints>
@@ -132,7 +138,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3T-cQ-Hd8" userLabel="MehDot">
-                                    <rect key="frame" x="16" y="440.5" width="8" height="8"/>
+                                    <rect key="frame" x="16" y="409.33333333333331" width="8" height="8"/>
                                     <color key="backgroundColor" red="0.95294117647058818" green="0.59999999999999998" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="8" id="5YH-4Q-uyB"/>
@@ -147,7 +153,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meh 437" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKG-S2-uNM" userLabel="MehLabel">
-                                    <rect key="frame" x="30" y="434.5" width="64" height="20"/>
+                                    <rect key="frame" x="30" y="403.33333333333331" width="64" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="bjL-AL-CA3"/>
                                     </constraints>
@@ -156,7 +162,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJo-kx-YFQ" userLabel="SkipDot">
-                                    <rect key="frame" x="110" y="440.5" width="8" height="8"/>
+                                    <rect key="frame" x="110" y="409.33333333333331" width="8" height="8"/>
                                     <color key="backgroundColor" red="0.92941176470588238" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="8" id="Y9e-K7-ilB"/>
@@ -169,7 +175,8 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skip 125" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKG-9W-x7B" userLabel="SkipLabel">
-                                    <rect key="frame" x="124" y="434.5" width="62.5" height="20"/>
+                                    <rect key="frame" x="124.00000000000001" y="403.33333333333331" width="62.666666666666671" height="20"/>                      
+
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="NXc-Hs-p4W"/>
                                     </constraints>
@@ -178,7 +185,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZe-5y-Yvk">
-                                    <rect key="frame" x="16" y="470.5" width="288" height="24"/>
+                                    <rect key="frame" x="16" y="439.33333333333331" width="396" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="Uci-Dh-zYb"/>
                                     </constraints>
@@ -195,7 +202,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeG-PV-zJM" userLabel="AboutLabel">
-                                    <rect key="frame" x="16" y="510.5" width="288" height="588.5"/>
+                                    <rect key="frame" x="16" y="479.33333333333337" width="396" height="446.33333333333337"/>
                                     <string key="text">Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate) and the amount is rising with every update.
 Simultaneous storytelling from three unique perspectives:
 Follow Michael, ex-criminal living his life of leisure away from the past, Franklin, a kid that seeks the better future, and Trevor, the exact past Michael is trying to run away from.
@@ -205,7 +212,7 @@ GTA Online will provide a lot of additional challenge even for the experienced p
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34e-oD-IZB">
-                                    <rect key="frame" x="16" y="1115" width="288" height="20"/>
+                                    <rect key="frame" x="16" y="941.66666666666663" width="396" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="5de-CZ-bxG"/>
                                     </constraints>
@@ -222,13 +229,13 @@ GTA Online will provide a lot of additional challenge even for the experienced p
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rockstar Games" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae5-tv-B0K" userLabel="PublisherLabel">
-                                    <rect key="frame" x="16" y="1143" width="288" height="20"/>
+                                    <rect key="frame" x="16" y="969.66666666666663" width="396" height="20"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5A1-D4-OCi" userLabel="Website">
-                                    <rect key="frame" x="16" y="1179" width="288" height="24"/>
+                                    <rect key="frame" x="16" y="1005.6666666666667" width="396" height="24"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Website">
                                             <attributes>
@@ -242,7 +249,7 @@ GTA Online will provide a lot of additional challenge even for the experienced p
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-S6-mht" userLabel="WebsiteButton">
-                                    <rect key="frame" x="16" y="1211" width="288" height="24"/>
+                                    <rect key="frame" x="16" y="1037.6666666666667" width="396" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <state key="normal" title="http://www.rockstargames.com/V/">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -310,6 +317,7 @@ GTA Online will provide a lot of additional challenge even for the experienced p
                     <color key="backgroundColor" name="BackgroundPrimary"/>
                     <constraints>
                         <constraint firstItem="jM2-f7-qzA" firstAttribute="top" secondItem="Cec-2i-inV" secondAttribute="top" id="MIT-cN-yIy"/>
+                        <constraint firstItem="vn0-t5-9ah" firstAttribute="bottom" secondItem="jM2-f7-qzA" secondAttribute="top" id="Ypj-qo-HWR"/>
                         <constraint firstItem="jM2-f7-qzA" firstAttribute="leading" secondItem="Cec-2i-inV" secondAttribute="leading" id="czM-XU-8Hp"/>
                         <constraint firstAttribute="bottom" secondItem="jM2-f7-qzA" secondAttribute="bottom" constant="30" id="fP9-CW-xy0"/>
                         <constraint firstAttribute="trailing" secondItem="jM2-f7-qzA" secondAttribute="trailing" id="tVK-ka-xQr"/>
@@ -320,13 +328,16 @@ GTA Online will provide a lot of additional challenge even for the experienced p
                     <viewLayoutGuide key="frameLayoutGuide" id="7Nh-8i-h3o"/>
                 </scrollView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="tQo-v9-Zwg"/>
+            <viewLayoutGuide key="safeArea" id="E1w-aT-VnC"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Cec-2i-inV" firstAttribute="trailing" secondItem="tQo-v9-Zwg" secondAttribute="trailing" id="DhN-aj-CdV"/>
-                <constraint firstItem="Cec-2i-inV" firstAttribute="top" secondItem="tQo-v9-Zwg" secondAttribute="top" id="E6F-B9-euV"/>
-                <constraint firstItem="Cec-2i-inV" firstAttribute="bottom" secondItem="tQo-v9-Zwg" secondAttribute="bottom" id="oSo-TO-yIp"/>
-                <constraint firstItem="Cec-2i-inV" firstAttribute="leading" secondItem="tQo-v9-Zwg" secondAttribute="leading" id="y6r-m1-pyh"/>
+                <constraint firstItem="Cec-2i-inV" firstAttribute="trailing" secondItem="R7l-kz-qFq" secondAttribute="trailing" id="DhN-aj-CdV"/>
+                <constraint firstItem="Cec-2i-inV" firstAttribute="top" secondItem="E1w-aT-VnC" secondAttribute="top" id="E6F-B9-euV"/>
+                <constraint firstItem="vn0-t5-9ah" firstAttribute="top" secondItem="E1w-aT-VnC" secondAttribute="top" id="OCE-0Q-TfP"/>
+                <constraint firstItem="E1w-aT-VnC" firstAttribute="trailing" secondItem="vn0-t5-9ah" secondAttribute="trailing" id="igE-h3-KZw"/>
+                <constraint firstItem="Cec-2i-inV" firstAttribute="bottom" secondItem="R7l-kz-qFq" secondAttribute="bottom" id="oSo-TO-yIp"/>
+                <constraint firstItem="Cec-2i-inV" firstAttribute="leading" secondItem="R7l-kz-qFq" secondAttribute="leading" id="y6r-m1-pyh"/>
+                <constraint firstItem="vn0-t5-9ah" firstAttribute="leading" secondItem="E1w-aT-VnC" secondAttribute="leading" id="yqa-0U-Ftw"/>
             </constraints>
             <connections>
                 <outlet property="averagePlaytimeLabel" destination="KJK-zn-dbo" id="rJs-1G-kva"/>
@@ -349,5 +360,8 @@ GTA Online will provide a lot of additional challenge even for the experienced p
         <namedColor name="BackgroundPrimary">
             <color red="0.125" green="0.125" blue="0.125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
