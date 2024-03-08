@@ -56,18 +56,8 @@ class DetailsViewController: BaseViewController, UIGestureRecognizerDelegate {
     private func setupGameDetailsView() {
         gameDetailsView = GameDetailsView.fromNib()
         view.addSubview(gameDetailsView)
-        gameDetailsView.frame = view.frame
-        gameDetailsView.scrollView.delegate = self
+        gameDetailsView.autoPinEdgesToSuperviewEdges()
     }
     
     override func addSeparatorView() {}
-}
-
-//MARK: - ScrollView
-
-extension DetailsViewController {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        gameDetailsView.strechyHeaderView.scrollViewDidScroll(scrollView: scrollView)
-    }
 }

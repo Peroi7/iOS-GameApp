@@ -7,10 +7,10 @@
 
 import UIKit
 
-class GameDetailsView: UIView, UIGestureRecognizerDelegate {
+class GameDetailsView: UIView, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     
     private enum Constants {
-        static let scrollViewContentInset: CGFloat = 80
+        static let scrollViewContentInset: CGFloat = 40
     }
     
     //MARK: - Views
@@ -42,6 +42,7 @@ class GameDetailsView: UIView, UIGestureRecognizerDelegate {
         strechyHeaderView.autoPinEdgesToSuperviewEdges()
         averagePlaytimeLabel.layer.borderColor = UIColor.white.cgColor
         scrollView.contentInset.bottom = Constants.scrollViewContentInset
+        scrollView.delegate = self
     }
     
     @IBAction func openWebsite(_ sender: UIButton) {
@@ -66,5 +67,14 @@ class GameDetailsView: UIView, UIGestureRecognizerDelegate {
             publisherLabel.text = viewModel.publisher
             websiteButton.setAttributedTitle(viewModel.websiteAttributed, for: .normal)
         }
+    }
+}
+
+//MARK: - ScrollView
+
+extension GameDetailsView {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        strechyHeaderView.scrollViewDidScroll(scrollView: scrollView)
     }
 }

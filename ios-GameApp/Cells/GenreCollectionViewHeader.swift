@@ -70,13 +70,14 @@ class GenreCollectionViewHeader: UICollectionReusableView, ReusableView {
     }
     
     @objc func dismissView() {
+        guard !LocalData.shared.isEmpty else { return }
         onDismiss?()
     }
     
     func configure(isEdit: Bool) {
         headerLabel.text = isEdit ? Constants.editHeaderText : Constants.headerText
         isEnabled = isEdit == true
-        isEnabled = LocalData.shared.loadSavedGenres().count != 0
+        isEnabled = !LocalData.shared.isEmpty
         doneButton.setTitle("Done", for: .normal)
     }
     
