@@ -28,9 +28,9 @@ class GameCollectionViewCell: UICollectionViewCell, NibProvidable, ReusableView 
     
     func configure(item: ViewModel) {
         if let item = item as? GameViewModel {
-            titleLabel.text = item.name
-            backgroundImageView.sd_imageTransition = .fade
             backgroundImageView.sd_setImage(with: item.backgroundURL, placeholderImage: nil, context: [.imageTransformer: item.imageTransformer])
+            titleLabel.text = item.name         
+            metacriticLabel.isHidden = item.isMetacriticHidden
             metacriticLabel.text = item.metacriticValue
             addedGameLabel.text = item.addedCount
             ratingLabel.text = item.ratingValue

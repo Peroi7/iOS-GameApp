@@ -18,4 +18,5 @@ enum AppConstants {
     static let keyIsOnboardingPresented = "keyIsOnboardingPresented"
     
     static let itemsPerPage = 20
+    static let detailsImageViewHeight: CGFloat = 240
 }

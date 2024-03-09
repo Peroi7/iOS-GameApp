@@ -11,6 +11,16 @@ class GamesViewController: BaseViewController {
 
     let viewModel = GameViewModel()
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        bind(item: viewModel)
+        viewModel.fetch(isPagging: false)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +46,10 @@ class GamesViewController: BaseViewController {
             case .loaded(let items):
                 uSelf.viewModel.items.removeAll()
                 uSelf.viewModel.items.append(contentsOf: items)
-                uSelf.addRightBarButton()
-                DispatchQueue.main.async {
-                    uSelf.collectionView.reloadData()
+                if let collectionView = uSelf.collectionView {
+                    DispatchQueue.main.async {
+                        collectionView.reloadData()
+                    }
                 }
                 uSelf.dismissHud()
             case .error(let error):

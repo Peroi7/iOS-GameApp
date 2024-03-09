@@ -38,11 +38,11 @@ class DetailsViewController: BaseViewController, UIGestureRecognizerDelegate {
             guard let uSelf = self else { return }
             switch state {
             case .loading:
-                uSelf.showHud()
+                uSelf.showLoadingView()
             case .loaded(let items):
                 guard let item = items.first else { return }
                 uSelf.gameDetailsView.configure(viewModel: item)
-                uSelf.dismissHud()
+                uSelf.removeLoadingView()
             case .error(let error):
                 print(error.localizedDescription)
             case .paging(_):

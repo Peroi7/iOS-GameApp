@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7416B2F82B7FC11C00D2639A /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7416B2F72B7FC11C00D2639A /* IHProgressHUD */; };
+		74350FA72B9C861B0048AD1F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74350FA62B9C861B0048AD1F /* LoadingView.swift */; };
 		745126CD2B867A0300EBBF79 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 745126CC2B867A0300EBBF79 /* ColorAssets.xcassets */; };
 		7459C7F82B84D4BC005BEA30 /* LayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7459C7F72B84D4BC005BEA30 /* LayerExtensions.swift */; };
 		7459C7FD2B84D60B005BEA30 /* PrimitiveTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7459C7FC2B84D60B005BEA30 /* PrimitiveTypeExtensions.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74350FA62B9C861B0048AD1F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		745126CC2B867A0300EBBF79 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		7459C7F72B84D4BC005BEA30 /* LayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerExtensions.swift; sourceTree = "<group>"; };
 		7459C7FC2B84D60B005BEA30 /* PrimitiveTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveTypeExtensions.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				74C14C1D2B86D0E100023921 /* NavigationController.swift */,
 				7470427B2B87B16F00B8A8F3 /* StrechyHeaderView.swift */,
 				74F818562B87DED600C38952 /* GameDetailsView.swift */,
+				74350FA62B9C861B0048AD1F /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				746E779F2B86290100248F76 /* AppCoordinator.swift in Sources */,
 				74678B7A2B88E17300474145 /* StringExtension.swift in Sources */,
 				74F818412B87DCBE00C38952 /* DetailsViewController.swift in Sources */,
+				74350FA72B9C861B0048AD1F /* LoadingView.swift in Sources */,
 				74C14C1E2B86D0E100023921 /* NavigationController.swift in Sources */,
 				748697E72B841BE6005B8D39 /* ViewModel.swift in Sources */,
 				74F818572B87DED600C38952 /* GameDetailsView.swift in Sources */,
