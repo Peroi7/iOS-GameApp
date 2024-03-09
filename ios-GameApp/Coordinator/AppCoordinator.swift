@@ -30,16 +30,21 @@ class AppCoordinator {
     func start(window: UIWindow?) {
         let gamesViewController = GamesViewController()
         let rootViewController = CustomNavigationController(rootViewController: gamesViewController)
+        let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        
+        window?.makeKeyAndVisible()
         
         if !isOnboardingPresented {
             addChild(parent: gamesViewController, isEdit: false)
+            window?.rootViewController = rootViewController
         } else {
+            gamesViewController.addRightBarButton()
             gamesViewController.navigationItem.title = Constants.gamesOverviewTitle
-            gamesViewController.viewModel.shouldFetchData = true
+            window?.rootViewController = launchScreen
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                window?.rootViewController = rootViewController
+            }
         }
-        
-        window?.makeKeyAndVisible()
-        window?.rootViewController = rootViewController
         parentViewController = gamesViewController
     }
     

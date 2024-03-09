@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Game App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bok-Oh-IRn">
-                                <rect key="frame" x="16" y="432.5" width="382" height="31.5"/>
+                                <rect key="frame" x="16" y="392.5" width="382" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -25,7 +25,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Bok-Oh-IRn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="25R-6m-5vr"/>
+                            <constraint firstItem="Bok-Oh-IRn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="25R-6m-5vr"/>
                             <constraint firstItem="Bok-Oh-IRn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3gJ-dh-tAx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bok-Oh-IRn" secondAttribute="trailing" constant="16" id="Ser-u9-RiQ"/>
                             <constraint firstItem="Bok-Oh-IRn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xVc-2I-uGU"/>

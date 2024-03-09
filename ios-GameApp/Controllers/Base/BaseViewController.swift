@@ -15,6 +15,7 @@ class BaseViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var collectionView: UICollectionView!
     private var separatorView: UIView!
     public var cancellables = Set<AnyCancellable>()
+    public var loadingView = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,20 @@ class BaseViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func dismissHud() {
         IHProgressHUD.dismiss()
+    }
+    
+    //MARK: - LoadingView
+    
+    func showLoadingView() {
+        view.addSubview(loadingView)
+        let navigationBarHeight =  navigationController?.navigationBar.frame.height ?? 0
+        let topOffset = AppConstants.detailsImageViewHeight + navigationBarHeight
+        loadingView.autoPinEdgesToSuperviewSafeArea(with: .init(top: topOffset, left: 0, bottom: 0, right: 0))
+        loadingView.show()
+    }
+    
+    func removeLoadingView() {
+        loadingView.remove()
     }
     
     //MARK: - Bind
