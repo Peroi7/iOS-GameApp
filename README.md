@@ -26,7 +26,8 @@ Design decision was to recreate Rawg.io UI for mobile version in swift using UIK
 **Screenshots**
 
 * iPhone 12 Pro Max (iOS 14.4 )
-
+  
+![IMG_9FEEA86D82A0-1](https://github.com/Peroi7/iOS-GameApp/assets/50051000/4c57e1e9-b125-4ad6-affe-10a5f81ca75f)
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2024-02-23 at 17 49 51](https://github.com/Peroi7/iOS-GameApp/assets/50051000/cc6ea381-aadb-4abd-b4f4-4144b580bdbe)
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2024-02-23 at 17 50 04](https://github.com/Peroi7/iOS-GameApp/assets/50051000/cf1f2447-67e5-49d1-ab9a-1e9b3602500d)
 ![Simulator Screen Shot - iPhone SE (2nd generation) - 2024-02-23 at 17 54 50](https://github.com/Peroi7/iOS-GameApp/assets/50051000/af5896bf-a86a-4989-8a4f-0a1d24232e78)
