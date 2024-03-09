@@ -43,7 +43,7 @@ class GameViewModel: Selection, ViewModel {
     }
     
     var imageTransformer: SDImageResizingTransformer {
-        return SDImageResizingTransformer(size: CGSize(width: 160, height: 160), scaleMode: .aspectFill)
+        return SDImageResizingTransformer(size: CGSize(width: 110, height: 110), scaleMode: .aspectFill)
     }
     
     var isMetacriticHidden: Bool {
